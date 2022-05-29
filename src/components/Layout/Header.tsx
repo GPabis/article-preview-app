@@ -1,18 +1,21 @@
 import { AppBar, IconButton, Toolbar, Typography } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
-import { styled } from '@mui/system';
+import { useContext } from 'react';
+import LayoutContext from '../../context/LayoutContext';
 
-const MenuIconStyled = styled(MenuIcon)`
-    font-size: 35px;
-    color: white;
-`;
 const Header: React.FC = () => {
+    const { open, openSidebarHandler } = useContext(LayoutContext);
+
+    const menuIcon = open || (
+        <IconButton onClick={openSidebarHandler}>
+            <MenuIcon sx={{ fontSize: '30px', color: '#ffffff' }} />
+        </IconButton>
+    );
+
     return (
         <AppBar position="static">
             <Toolbar>
-                <IconButton>
-                    <MenuIconStyled />
-                </IconButton>
+                {menuIcon}
                 <Typography variant="h6" component="div" sx={{ marginLeft: '20px' }}>
                     Articles Preview App
                 </Typography>

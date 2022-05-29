@@ -59,6 +59,7 @@
         "max-lines": ["error", { "max": 300, "skipBlankLines": true, "skipComments": true }],
         "@typescript-eslint/no-explicit-any": ["error"],
         "@typescript-eslint/explicit-module-boundary-types": "off",
-        "@typescript-eslint/no-non-null-assertion": "off"
+        "@typescript-eslint/no-non-null-assertion": "off",
+        "@typescript-eslint/no-empty-function": "off"
     }
 }
