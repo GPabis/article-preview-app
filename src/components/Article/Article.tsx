@@ -35,6 +35,12 @@ const Title = styled(Typography)`
 `;
 
 const Article: React.FC<Article> = ({ date, image, title, preamble }) => {
+    const dateComponent = !isNaN(Date.parse(date.toString())) && (
+        <Typography paragraph sx={{ minWidth: '60px' }}>
+            {date.toISOString().substring(0, 10)}
+        </Typography>
+    );
+
     return (
         <ArticleContainer>
             <ImageContainer>
@@ -43,11 +49,7 @@ const Article: React.FC<Article> = ({ date, image, title, preamble }) => {
             <Box sx={{ padding: '10px', width: '100%' }}>
                 <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
                     <Title variant="h4">{title}</Title>
-                    {!isNaN(Date.parse(date.toString())) && (
-                        <Typography paragraph sx={{ minWidth: '60px' }}>
-                            {date.toISOString().substring(0, 10)}
-                        </Typography>
-                    )}
+                    {dateComponent}
                 </Box>
                 <Typography paragraph>{preamble}</Typography>
             </Box>
