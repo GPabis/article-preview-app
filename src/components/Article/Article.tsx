@@ -36,9 +36,11 @@ const Title = styled(Typography)`
 const Article: React.FC<ArticleType> = ({ date, image, title, preamble }) => {
     return (
         <ArticleContainer>
-            <ImageContainer>
-                <Image src={image} alt={title} />
-            </ImageContainer>
+            {image && (
+                <ImageContainer>
+                    <Image src={image} alt={title} />
+                </ImageContainer>
+            )}
             <Box sx={{ padding: '10px', width: '100%' }}>
                 <Title variant="h4">{title}</Title>
                 <Typography paragraph sx={{ minWidth: '100px', fontSize: '13px' }}>

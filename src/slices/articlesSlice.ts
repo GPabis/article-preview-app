@@ -25,7 +25,7 @@ export const articleSlices = createSlice({
         setArticle: (state, action: PayloadAction<SetArticlePayload>) => {
             const articlesFromPayload: ArticleType[] = action.payload.articles.map((article) => ({
                 ...article,
-                image: article.image || noImage,
+                image: article.image,
                 date: moment.utc(article.date, 'DD. MMM. YYYY', 'nb').valueOf(),
             }));
 

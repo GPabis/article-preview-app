@@ -18,8 +18,20 @@ const Articles: React.FC = () => {
 
     return (
         <>
-            <Sorting sortAsc={() => dispatch(sortArticles('asc'))} sortDesc={() => dispatch(sortArticles('desc'))} />
-            <Box>{articlesComponents.length ? articlesComponents : <NoArticles />}</Box>;
+            <Box>
+                {articlesComponents.length ? (
+                    <>
+                        <Sorting
+                            sortAsc={() => dispatch(sortArticles('asc'))}
+                            sortDesc={() => dispatch(sortArticles('desc'))}
+                        />
+                        {articlesComponents}
+                    </>
+                ) : (
+                    <NoArticles />
+                )}
+            </Box>
+            ;
         </>
     );
 };
