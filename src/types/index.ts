@@ -13,10 +13,10 @@ export enum APIRoutes {
 }
 
 //==============================================================================
-// State
+// Items
 //==============================================================================
 
-export interface ArticleState {
+export interface Article {
     id: number;
     date: Date;
     image: string;
@@ -25,18 +25,17 @@ export interface ArticleState {
     preamble: string;
 }
 
-export interface ApiResponse {
-    articles: ArticleState[] | undefined;
-    message: string | undefined;
-}
+//==============================================================================
+// State
+//==============================================================================
 
 export interface InitialArticleState {
-    articles: ArticleState[];
+    articles: Article[];
     activeFilters: Category[];
 }
 
 export interface SetArticlePayload {
-    articles: ArticleState[];
+    articles: Article[];
     category: Category;
 }
 
@@ -52,4 +51,13 @@ export interface LayoutContextState {
     sidebarWidth: number;
     openSidebarHandler: () => void;
     closeSidebarHandler: () => void;
+}
+
+//==============================================================================
+// API
+//==============================================================================
+
+export interface ApiResponse {
+    articles: Article[] | undefined;
+    message: string | undefined;
 }

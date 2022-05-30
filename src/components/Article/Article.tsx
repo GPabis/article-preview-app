@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 import { Box, Typography } from '@mui/material';
-import { ArticleState } from 'src/types';
+import { Article } from 'src/types';
 
 const ArticleContainer = styled.div`
     display: flex;
@@ -34,7 +34,7 @@ const Title = styled(Typography)`
     }
 `;
 
-const Article: React.FC<ArticleState> = ({ date, image, title, preamble }) => {
+const Article: React.FC<Article> = ({ date, image, title, preamble }) => {
     return (
         <ArticleContainer>
             <ImageContainer>

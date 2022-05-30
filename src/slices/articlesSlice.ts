@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { RootState } from 'src/store/store';
-import { ArticleState, Category, InitialArticleState, SetArticlePayload } from 'src/types';
+import { Article, Category, InitialArticleState, SetArticlePayload } from 'src/types';
 import noImage from '../resources/noImage.jpg';
 
 const initialState: InitialArticleState = {
@@ -13,7 +13,7 @@ export const articleSlices = createSlice({
     initialState,
     reducers: {
         setArticle: (state, action: PayloadAction<SetArticlePayload>) => {
-            const articlesFromPayload: ArticleState[] = action.payload.articles.map((article) => ({
+            const articlesFromPayload: Article[] = action.payload.articles.map((article) => ({
                 ...article,
                 image: article.image || noImage,
                 date: new Date(article.date),
