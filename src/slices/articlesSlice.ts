@@ -1,7 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { RootState } from 'src/store/store';
 import { ArticleType, Category, InitialArticleState, SetArticlePayload, SortType } from 'src/types';
-import noImage from '../resources/noImage.jpg';
 import moment from 'moment';
 import 'moment/locale/nb';
 
