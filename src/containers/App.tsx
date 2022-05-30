@@ -1,9 +1,10 @@
+import Articles from './Articles';
 import Layout from './Layout';
 
 function App() {
     return (
         <Layout>
-            <>test</>
+            <Articles />
         </Layout>
     );
 }

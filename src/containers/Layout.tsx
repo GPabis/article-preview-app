@@ -1,10 +1,11 @@
 import { Box } from '@mui/material';
 import { useContext } from 'react';
-import CategoryFilter from '../components/Sidebar/CategoryFilter';
+import CategoryFilter from './CategoryFilter';
 import Header from '../components/Layout/Header';
 import LayoutContext from '../context/LayoutContext';
 import Main from '../components/Layout/Main';
 import Sidebar from '../components/Sidebar/Sidebar';
+import ErrorNotyfication from 'src/components/Errors/ErrorNotyfication';
 
 const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
     const { sidebarWidth, open } = useContext(LayoutContext);
@@ -16,6 +17,7 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
                 <Header />
                 {children}
             </Main>
+            <ErrorNotyfication />
         </Box>
     );
 };

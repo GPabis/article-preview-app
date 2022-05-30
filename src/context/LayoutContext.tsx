@@ -1,11 +1,5 @@
 import React, { createContext, useMemo, useState } from 'react';
-
-interface LayoutContextState {
-    open: boolean;
-    sidebarWidth: number;
-    openSidebarHandler: () => void;
-    closeSidebarHandler: () => void;
-}
+import { LayoutContextState } from 'src/types';
 
 const LayoutContext = createContext<LayoutContextState>({
     open: false,

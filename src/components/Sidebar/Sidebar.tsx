@@ -18,10 +18,10 @@ const Sidebar: React.FC<SidebarProps> = ({ content }) => {
     const { open, closeSidebarHandler, sidebarWidth } = useContext(LayoutContext);
 
     const sidebarContent = content?.map((item) => (
-        <>
+        <Box key={new Date().toString()}>
             <Box sx={{ padding: '10px 20px' }}>{item}</Box>
             <Divider />
-        </>
+        </Box>
     ));
 
     return (

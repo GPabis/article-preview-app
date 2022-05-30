@@ -6,14 +6,14 @@ import LayoutContext from '../../context/LayoutContext';
 const Header: React.FC = () => {
     const { open, openSidebarHandler } = useContext(LayoutContext);
 
-    const menuIcon = open || (
+    const menuIcon = !open && (
         <IconButton onClick={openSidebarHandler}>
             <MenuIcon sx={{ fontSize: '30px', color: '#ffffff' }} />
         </IconButton>
     );
 
     return (
-        <AppBar position="static">
+        <AppBar position="sticky">
             <Toolbar>
                 {menuIcon}
                 <Typography variant="h6" component="div" sx={{ marginLeft: '20px' }}>
