@@ -15,7 +15,7 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
             <Sidebar content={[<CategoryFilter />]} />
             <Main sidebarWidth={sidebarWidth} open={open}>
                 <Header />
-                {children}
+                <Box sx={{ padding: '15px' }}>{children}</Box>
             </Main>
             <ErrorNotyfication />
         </Box>

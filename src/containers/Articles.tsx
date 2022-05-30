@@ -1,15 +1,27 @@
-import { Box } from '@mui/material';
+import { Box, Divider } from '@mui/material';
 import Article from 'src/components/Article/Article';
 import NoArticles from 'src/components/Article/NoArticles';
-import { selectArticles } from 'src/slices/articlesSlice';
-import { useAppSelector } from 'src/store/hooks';
+import Sorting from 'src/components/Article/Sorting';
+import { selectArticles, sortArticles } from 'src/slices/articlesSlice';
+import { useAppDispatch, useAppSelector } from 'src/store/hooks';
 
 const Articles: React.FC = () => {
     const { articles } = useAppSelector(selectArticles);
+    const dispatch = useAppDispatch();
 
-    const articlesComponents = articles.map((article) => <Article key={article.id} {...article} />);
+    const articlesComponents = articles.map((article) => (
+        <Box key={article.id}>
+            <Divider />
+            <Article {...article} />
+        </Box>
+    ));
 
-    return <Box>{articlesComponents.length ? articlesComponents : <NoArticles />}</Box>;
+    return (
+        <>
+            <Sorting sortAsc={() => dispatch(sortArticles('asc'))} sortDesc={() => dispatch(sortArticles('desc'))} />
+            <Box>{articlesComponents.length ? articlesComponents : <NoArticles />}</Box>;
+        </>
+    );
 };
 
 export default Articles;

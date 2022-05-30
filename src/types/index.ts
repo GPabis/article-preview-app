@@ -1,4 +1,10 @@
 //==============================================================================
+// TYPES
+//==============================================================================
+
+export type SortType = 'asc' | 'desc' | undefined;
+
+//==============================================================================
 // Enums
 //==============================================================================
 
@@ -16,9 +22,9 @@ export enum APIRoutes {
 // Items
 //==============================================================================
 
-export interface Article {
+export interface ArticleType {
     id: number;
-    date: Date;
+    date: number;
     image: string;
     category: Category;
     title: string;
@@ -30,12 +36,13 @@ export interface Article {
 //==============================================================================
 
 export interface InitialArticleState {
-    articles: Article[];
+    articles: ArticleType[];
     activeFilters: Category[];
+    sort: SortType;
 }
 
 export interface SetArticlePayload {
-    articles: Article[];
+    articles: ArticleType[];
     category: Category;
 }
 
@@ -53,11 +60,16 @@ export interface LayoutContextState {
     closeSidebarHandler: () => void;
 }
 
+export interface SortingState {
+    sortDesc: () => void;
+    sortAsc: () => void;
+}
+
 //==============================================================================
 // API
 //==============================================================================
 
 export interface ApiResponse {
-    articles: Article[] | undefined;
+    articles: ArticleType[] | undefined;
     message: string | undefined;
 }
