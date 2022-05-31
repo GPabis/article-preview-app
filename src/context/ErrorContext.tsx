@@ -1,4 +1,4 @@
-import React, { createContext, useMemo, useState } from 'react';
+import React, { createContext, useCallback, useMemo, useState } from 'react';
 import { ErrorContextState } from 'src/types';
 
 const ErrorContext = createContext<ErrorContextState>({
@@ -12,15 +12,15 @@ export const ErrorProvider: React.FC<{ children: React.ReactNode }> = ({ childre
     const [open, setOpen] = useState(false);
     const [message, setMessage] = useState('');
 
-    const showError = (msg: string) => {
+    const showError = useCallback((msg: string) => {
         setOpen(true);
         setMessage(msg);
-    };
+    }, []);
 
-    const closeError = () => {
+    const closeError = useCallback(() => {
         setOpen(false);
         setMessage('');
-    };
+    }, []);
 
     const value: ErrorContextState = useMemo(
         () => ({

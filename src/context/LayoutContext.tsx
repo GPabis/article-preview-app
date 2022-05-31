@@ -1,4 +1,4 @@
-import React, { createContext, useMemo, useState } from 'react';
+import React, { createContext, useCallback, useMemo, useState } from 'react';
 import { LayoutContextState } from 'src/types';
 
 const LayoutContext = createContext<LayoutContextState>({
@@ -14,9 +14,9 @@ export const LayoutProvider: React.FC<{ children: React.ReactNode; sidebarWidth?
 }) => {
     const [open, setOpen] = useState(false);
 
-    const openSidebarHandler = () => setOpen(true);
+    const openSidebarHandler = useCallback(() => setOpen(true), []);
 
-    const closeSidebarHandler = () => setOpen(false);
+    const closeSidebarHandler = useCallback(() => setOpen(false), []);
 
     const value: LayoutContextState = useMemo(
         () => ({
